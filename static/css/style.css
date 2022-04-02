@@ -4,7 +4,7 @@
   Theme: Kotlis Photography - Creative  Responsive Photography  Template
   Version: 1.0
   Last change: 01/02/2019 ]
- 
+
 /*-------------Fonts---------------------------------------*/
 
 @import url('https://fonts.googleapis.com/css?family=Playfair+Display|Ek+Mukta:200,300,400,500,600,700,800&subset=devanagari,latin-ext');
@@ -160,8 +160,8 @@ blockquote p {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 2;
-    opacity: 0;
+    /*z-index: 2;*/
+    /*opacity: 0;*/
 }
 
 .fl-wrap {

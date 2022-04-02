@@ -2,9 +2,9 @@
 function initKotlis() {
     "use strict";
     $(".loader-wrap").fadeOut(200, function() {
-        $("#main").animate({
-            opacity: "1"
-        }, 500);
+      $("#main").animate({
+        opacity: "1"
+      }, 500);
     });
     //   Background image ------------------
     var a = $(".bg");
