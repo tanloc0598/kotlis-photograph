@@ -1,4 +1,4 @@
-# louis-photography
+# Kotlis-photograph
 
 ## Build Setup
 
@@ -22,6 +22,29 @@ For detailed explanation on how things work, check out the [documentation](https
 ## Special Directories
 
 You can create the following extra directories, some of which have special behaviors. Only `pages` is required; you can delete them if you don't want to use their functionality.
+
+### `contents\portfolio `
+
+```md
+---
+title: Post title
+description: 'Post description' 
+img: 'Thumbnail image'
+banner_img: 'Banner image'
+camera: 'Camera info'
+model: 'Model info'
+location: 'Location info'
+detail_short: ''
+detail_description: ''
+tags: ''
+category: ''
+createdAt: 2020-03-30
+updatedAt: 2022-04-03
+---
+
+Your html or md content here
+
+```
 
 ### `assets`
 
