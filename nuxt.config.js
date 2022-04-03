@@ -6,31 +6,38 @@ export default {
   head: {
     title: 'louis-photography',
     meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Louis photography' },
-      { name: 'format-detection', content: 'telephone=no' }
+      {charset: 'utf-8'},
+      {name: 'viewport', content: 'width=device-width, initial-scale=1'},
+      {hid: 'description', name: 'description', content: 'Louis photography'},
+      {name: 'format-detection', content: 'telephone=no'}
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', type: 'text/css', href: '/css/reset.css' },
-      { rel: 'stylesheet', type: 'text/css', href: '/css/plugins.css' },
-      { rel: 'stylesheet', type: 'text/css', href: '/css/style.css' },
-      { rel: 'stylesheet', type: 'text/css', href: '/css/style-dark.css' },
+      {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'},
+      {rel: 'stylesheet', type: 'text/css', href: '/css/reset.css'},
+      {rel: 'stylesheet', type: 'text/css', href: '/css/plugins.css'},
+      {rel: 'stylesheet', type: 'text/css', href: '/css/style.css'},
+      {rel: 'stylesheet', type: 'text/css', href: '/css/style-dark.css'},
     ],
     script: [
-      { src: "/js/jquery.min.js" },
-      { src: "/js/plugins.js" },
-      { src: "/js/scripts.js" },
+      {src: "/js/jquery.min.js",
+        type: 'text/javascript',
+        body: true
+      },
+      {src: "/js/plugins.js",
+        type: 'text/javascript',
+        body: true},
+      {src: "/js/scripts.js",
+        type: 'text/javascript',
+        body: true,defer: true},
     ],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [
-  ],
+  css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    { src: '~/plugins/init.js', ssr: false }
 
   ],
 
@@ -69,6 +76,5 @@ export default {
   content: {},
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {
-  }
+  build: {}
 }

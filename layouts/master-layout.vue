@@ -15,13 +15,15 @@
         <!-- cursor end-->
       </div>
     </div>
+
   </div>
 </template>
 
 <script>
-
 export default {
-  name: "master-layout"
+  name: "master-layout",
+  mounted() {
+  }
 }
 </script>
 

@@ -9,75 +9,18 @@
         <div class="fw-carousel  fs-gallery-wrap fl-wrap full-height lightgallery" data-mousecontrol="true">
           <div class="swiper-container">
             <div class="swiper-wrapper">
+
               <!-- swiper-slide-->
-              <div class="swiper-slide hov_zoom">
-                <img src="images/bg/14.jpg" alt="">
-                <a href="images/bg/14.jpg" class="box-media-zoom   popup-image"><i class="fal fa-search"></i></a>
+              <div class="swiper-slide hov_zoom" v-for="portfolio in portfolios"
+                   :key="portfolio.slug">
+                <img :src="portfolio.img" alt="">
+                <a :href="portfolio.img" class="box-media-zoom   popup-image"><i class="fal fa-search"></i></a>
                 <div class="thumb-info">
-                  <h3><a href="portfolio-single.html">Alone on Nature</a></h3>
-                  <p>Here you can place an optional description of your Project</p>
+                  <h3>
+                    <NuxtLink :to="'/portfolio/'+portfolio.slug">{{ portfolio.title }}</NuxtLink>
+                  </h3>
+                  <p>{{ portfolio.description }}</p>
                 </div>
-              </div>
-              <!-- swiper-slide end-->
-              <!-- swiper-slide-->
-              <div class="swiper-slide hov_zoom">
-                <img src="images/bg/2.jpg" alt="">
-                <a href="images/bg/2.jpg" class="box-media-zoom   popup-image"><i class="fal fa-search"></i></a>
-                <div class="thumb-info">
-                  <h3><a href="portfolio-single.html">The Other Side of Me</a></h3>
-                  <p>Here you can place an optional description of your Project</p>
-                </div>
-              </div>
-              <!-- swiper-slide end-->
-              <!-- swiper-slide-->
-              <div class="swiper-slide hov_zoom">
-                <img src="images/bg/11.jpg" alt="">
-                <a href="images/bg/11.jpg" class="box-media-zoom   popup-image"><i class="fal fa-search"></i></a>
-                <div class="thumb-info">
-                  <h3><a href="portfolio-single.html">Forever Young</a></h3>
-                  <p>Here you can place an optional description of your Project</p>
-                </div>
-              </div>
-              <!-- swiper-slide end-->
-              <!-- swiper-slide-->
-              <div class="swiper-slide hov_zoom">
-                <img src="images/bg/3.jpg" alt="">
-                <a href="images/bg/3.jpg" class="box-media-zoom   popup-image"><i class="fal fa-search"></i></a>
-                <div class="thumb-info">
-                  <h3><a href="portfolio-single.html">Travelling is Fun</a></h3>
-                  <p>Here you can place an optional description of your Project</p>
-                </div>
-              </div>
-              <!-- swiper-slide end-->
-              <!-- swiper-slide-->
-              <div class="swiper-slide hov_zoom">
-                <img src="images/bg/5.jpg" alt="">
-                <a href="images/bg/5.jpg" class="box-media-zoom   popup-image"><i class="fal fa-search"></i></a>
-                <div class="thumb-info">
-                  <h3><a href="portfolio-single.html">Norway Nature</a></h3>
-                  <p>Here you can place an optional description of your Project</p>
-                </div>
-              </div>
-              <!-- swiper-slide end-->
-              <!-- swiper-slide-->
-              <div class="swiper-slide hov_zoom">
-                <img src="images/bg/9.jpg" alt="">
-                <a href="images/bg/9.jpg" class="box-media-zoom   popup-image"><i class="fal fa-search"></i></a>
-                <div class="thumb-info">
-                  <h3><a href="portfolio-single.html">A Wonderful Life</a></h3>
-                  <p>Here you can place an optional description of your Project</p>
-                </div>
-              </div>
-              <!-- swiper-slide end-->
-              <!-- swiper-slide-->
-              <div class="swiper-slide swiper-link-wrap hov_zoom">
-                <img src="images/bg/7.jpg" alt="">
-                <a href="images/bg/7.jpg" class="box-media-zoom   popup-image"><i class="fal fa-search"></i></a>
-                <div class="thumb-info">
-                  <h3><a href="portfolio-single.html">Alone on Nature</a></h3>
-                  <p>Here you can place an optional description of your Project</p>
-                </div>
-                <a href="portfolio.html" class="swiper-link"><span>View Portfolio</span></a>
               </div>
               <!-- swiper-slide end-->
             </div>
@@ -127,5 +70,25 @@
 export default {
   name: 'IndexPage',
   layout: 'master-layout',
+
+  async asyncData({$content, params, app, error}) {
+    const portfolios = await $content('portfolio', params.slug)
+      .only(['title', 'description', 'img', 'slug', 'author', 'createdAt'])
+      .sortBy('createdAt', 'desc')
+      .fetch()
+      .catch(() => {
+        error({statusCode: 404, message: 'Page not found'})
+      })
+    return {
+      portfolios,
+    }
+  },
+  methods: {
+    formatDate(date) {
+      console.log(date)
+      const options = {year: 'numeric', month: 'long', day: 'numeric'}
+      return new Date(date).toLocaleDateString('en', options)
+    },
+  },
 }
 </script>

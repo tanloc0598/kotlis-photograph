@@ -11,6 +11,7 @@
 /*-------------General Style---------------------------------------*/
 
 html {
+    scroll-behavior: smooth;
     overflow-x: hidden !important;
     overflow-y: scroll !important;
     height: 100%;

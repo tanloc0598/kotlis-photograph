@@ -185,3 +185,22 @@ blockquote,
         background: #1B1B1B;
     }
 }
+
+img {
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
+}
+
+img:hover {
+  filter: none;
+  -webkit-filter: grayscale(0%);
+  transition: 0.3s;
+
+}
+
+img:active {
+  filter: none;
+  -webkit-filter: grayscale(0%);
+  transition: 0.1ms;
+
+}

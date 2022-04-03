@@ -1,10 +1,12 @@
 <template>
   <!-- column-image  -->
   <div class="column-image">
-    <div class="bg" :style="{ backgroundImage: `url(/images/bg/22.jpg)` }"></div>
+    <div v-if="img" class="bg" :style="{ backgroundImage: 'url(' + img + ')'  }"></div>
+    <div v-else-if="img ===''" class="bg" :style="{}"></div>
+    <div v-else class="bg" :style="{ backgroundImage: `url(/images/cover/IMG_1642778514959.jpeg)` }"></div>
     <div class="overlay"></div>
     <div class="column-title">
-      <h2>My Stories</h2>
+      <h2>Our's Stories</h2>
       <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque. Nulla finibus
         lobortis pulvinar.</h3>
     </div>
@@ -23,7 +25,10 @@
 
 <script>
 export default {
-  name: "left-columns"
+  name: "left-columns",
+  props: [
+    'img'
+  ]
 }
 </script>
 

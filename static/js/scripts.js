@@ -4,7 +4,7 @@ function initKotlis() {
     $(".loader-wrap").fadeOut(200, function() {
       $("#main").animate({
         opacity: "1"
-      }, 500);
+      }, 50);
     });
     //   Background image ------------------
     var a = $(".bg");

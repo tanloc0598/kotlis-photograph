@@ -2,7 +2,7 @@
   <!-- header start  -->
   <header class="main-header">
     <!-- logo   -->
-    <a href="index.html" class="logo-holder"><img src="images/logo.png" alt=""></a>
+    <NuxtLink to="/" class="logo-holder louis-nav-tittle">Louis Portfolio</NuxtLink>
     <!-- logo end  -->
     <!-- search -->
     <div class="search-button"><i class="far fa-search"></i></div>
@@ -20,15 +20,15 @@
       <nav>
         <ul>
           <li>
-            <NuxtLink to="/" class="act-link">Home</NuxtLink>
+            <NuxtLink to="/" v-bind:class="{ 'act-link' : this.$nuxt.$route.path=='/'}">Home</NuxtLink>
           </li>
           <li>
-            <NuxtLink to="/portfolio">Portfolio</NuxtLink>
+            <NuxtLink to="/portfolio" v-bind:class="{ 'act-link' : this.$nuxt.$route.path=='/portfolio'}" >Portfolio</NuxtLink>
           <li>
-            <NuxtLink to="/about">About</NuxtLink>
+            <NuxtLink to="/about" v-bind:class="{ 'act-link' : this.$nuxt.$route.path=='/about'}">About</NuxtLink>
           </li>
           <li>
-            <NuxtLink to="/contacts">Contacts</NuxtLink>
+            <NuxtLink to="/contacts" v-bind:class="{ 'act-link' : this.$nuxt.$route.path=='/contacts'}">Contacts</NuxtLink>
           </li>
         </ul>
       </nav>
@@ -40,10 +40,19 @@
 
 <script>
 export default {
-  name: "navbar"
+  name: "navbar",
+
 }
 </script>
 
 <style scoped>
-
+  .louis-nav-tittle {
+    color: #fff;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 700;
+    line-height: 25px;
+    text-align: center;
+    font-family: 'Ek Mukta', sans-serif;
+  }
 </style>
