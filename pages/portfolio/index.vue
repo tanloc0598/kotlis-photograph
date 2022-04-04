@@ -6,7 +6,7 @@
       <portfolio-listing-left-columns/>
       <!-- column-wrapper -->
       <div class="column-wrapper  single-content-section">
-        <portfolio-listing-pagination />
+        <portfolio-listing-pagination :lastPage="lastPage" :currentPage="currentPage" :query="query"/>
         <!--section  -->
         <section class="single-content-section">
           <div class="container small-container">
@@ -39,17 +39,41 @@
 export default {
   name: "portfolio",
   layout: 'master-layout',
+  async asyncData({$content, query , params, app, error}) {
+    const perPage = 5;
+    const currentPage = parseInt(query.page ?? 1);
 
-  async asyncData({$content, params, app, error}) {
+    const allPortfolios = await $content("portfolio").fetch();
+
+    const totalPortfolios = allPortfolios.length;
+
+    // use Math.ceil to round up to the nearest whole number
+    const lastPage = Math.ceil(totalPortfolios / perPage);
+
+    // use the % (modulus) operator to get a whole remainder
+    const lastPageCount = totalPortfolios % perPage === 0 ? perPage : totalPortfolios % perPage;
+
+    const skipNumber = () => {
+      if (currentPage === 1) {
+        return 0;
+      }
+      if (currentPage === lastPage) {
+        return totalPortfolios - lastPageCount;
+      }
+      return (currentPage - 1) * perPage;
+    };
+  console.log(currentPage, lastPage)
     const portfolios = await $content('portfolio', params.slug)
       .only(['title', 'description', 'img', 'slug', 'author', 'createdAt'])
       .sortBy('createdAt', 'desc')
+      .limit(perPage)
+      .skip(skipNumber())
       .fetch()
       .catch(() => {
         error({statusCode: 404, message: 'Page not found'})
       })
     return {
-      portfolios,
+      portfolios, lastPage, currentPage, query
     }
   },
   methods: {
