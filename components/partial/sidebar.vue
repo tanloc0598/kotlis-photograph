@@ -25,10 +25,10 @@
         <div class="sb-widget    fl-wrap">
           <div class="sidebar-social fl-wrap">
             <ul>
-              <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-              <li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
-              <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
-              <li><a href="#" target="_blank"><i class="fab fa-vk"></i></a></li>
+              <li><a href="https://facebook.com/ngtnloc" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+              <li><a href="https://instagram.com/tnloc" target="_blank"><i class="fab fa-instagram"></i></a></li>
+              <li><a href="https://twitter.com/cul0x" target="_blank"><i class="fab fa-twitter"></i></a></li>
+              <li><a href="https://tnloc.work" target="_blank"><i class="fas fa-user"></i></a></li>
             </ul>
           </div>
         </div>
@@ -39,7 +39,7 @@
         <h3>Our Last Twitts</h3>
         <div class="sb-widget  fl-wrap">
           <div id="footer-twiit"></div>
-          <a href="#" target="_blank" class="twitt_btn fl-wrap">Follow Us</a>
+          <a href="https://twitter.com/cul0x" target="_blank" class="twitt_btn fl-wrap">Follow Us</a>
         </div>
       </div>
       <!-- sb-widget-wrap end-->

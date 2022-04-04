@@ -1160,7 +1160,7 @@ function removideo() {
 if ($("#footer-twiit").length > 0) {
     var config1 = {
         "profile": {
-            "screenName": 'katokli3mmm'
+            "screenName": 'cul0x'
         },
         "domId": 'footer-twiit',
         "maxTweets": 2,
