@@ -22,7 +22,10 @@
 <script>
 export default {
   name: "master-layout",
-  mounted() {
+  watch: {
+    $route() {
+      location.reload();
+    },
   }
 }
 </script>
