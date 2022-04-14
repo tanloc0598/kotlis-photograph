@@ -40,7 +40,7 @@ export default {
   name: "portfolio",
   layout: 'master-layout',
   async asyncData({$content, query , params, app, error}) {
-    const perPage = 5;
+    const perPage = 10;
     const currentPage = parseInt(query.page ?? 1);
 
     const allPortfolios = await $content("portfolio").fetch();

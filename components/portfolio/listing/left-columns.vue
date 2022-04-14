@@ -2,6 +2,11 @@
   <!-- column-image  -->
   <div class="column-image">
     <div v-if="img" class="bg" :style="{ backgroundImage: 'url(' + img + ')'  }"></div>
+    <div v-else-if="vid" class="bg" >
+      <video autoplay loop>
+        <source :src="vid" type="video/mp4" codecs="avc1.4d002a, mp4a.40.2">
+      </video>
+    </div>
     <div v-else-if="img ===''" class="bg" :style="{}"></div>
     <div v-else class="bg" :style="{ backgroundImage: `url(/images/cover/IMG_1642778514959.jpeg)` }"></div>
     <div class="overlay"></div>
@@ -27,7 +32,8 @@
 export default {
   name: "left-columns",
   props: [
-    'img'
+    'img',
+    'vid',
   ]
 }
 </script>

@@ -3,7 +3,7 @@
   <div id="wrapper">
     <!-- content -->
     <div class="content">
-      <portfolio-listing-left-columns :img="portfolio.banner_img"/>
+      <portfolio-listing-left-columns :img="portfolio.banner_img" :vid="portfolio.banner_vid"/>
       <!-- column-wrapper -->
       <div class="column-wrapper single-content-section">
 <!--        <div class="fixed-bottom-content content-animvisible">-->
