@@ -26,7 +26,7 @@ export default {
     $route() {
       location.reload();
     },
-  }
+  },
 }
 </script>
 

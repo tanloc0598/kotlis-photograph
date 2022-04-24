@@ -4,7 +4,9 @@ export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
   router: {
-    port: process.env.PORT
+    port: process.env.PORT,
+    middleware: ['password-protect']
+
   },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -23,16 +25,21 @@ export default {
       {rel: 'stylesheet', type: 'text/css', href: '/css/style-dark.css'},
     ],
     script: [
-      {src: "/js/jquery.min.js",
+      {
+        src: "/js/jquery.min.js",
         type: 'text/javascript',
         body: true
       },
-      {src: "/js/plugins.js",
+      {
+        src: "/js/plugins.js",
         type: 'text/javascript',
-        body: true},
-      {src: "/js/scripts.js",
+        body: true
+      },
+      {
+        src: "/js/scripts.js",
         type: 'text/javascript',
-        body: true,defer: true},
+        body: true, defer: true
+      },
     ],
   },
 
@@ -41,7 +48,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    { src: '~/plugins/init.js', ssr: false }
+    {src: '~/plugins/init.js', ssr: false}
 
   ],
 
@@ -61,8 +68,21 @@ export default {
     '@nuxtjs/pwa',
     // https://go.nuxtjs.dev/content
     '@nuxt/content',
+    'nuxt-password-protect',
   ],
-
+  passwordProtect: {
+    enabled: false,
+    formPath: '/password',
+    password: process.env.SIMPLE_PASSWORD_PROTECT,
+    tokenSeed: 101010,
+    queryString: '_pw',
+    cookieName: '_password',
+    cookie: {
+      prefix: '',
+      expires: 5
+    },
+    ignoredPaths: ['/public-page']
+  },
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
