@@ -64,6 +64,13 @@ export default {
     };
   console.log(currentPage, lastPage)
     const portfolios = await $content('portfolio', params.slug)
+      .where({
+        $and: {
+          status: {
+            $in: ['A', '']
+          },
+        }
+      })
       .only(['title', 'description', 'img', 'slug', 'author', 'createdAt'])
       .sortBy('createdAt', 'desc')
       .limit(perPage)

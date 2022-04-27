@@ -5,8 +5,8 @@
     <NuxtLink to="/" class="logo-holder louis-nav-tittle">Louis Portfolio</NuxtLink>
     <!-- logo end  -->
     <!-- search -->
-    <div class="search-button"><i class="far fa-search"></i></div>
-    <div class="search-input"><input name="se" id="se" type="text" class="search" placeholder="Search.."/></div>
+<!--    <div class="search-button"><i class="far fa-search"></i></div>-->
+<!--    <div class="search-input"><input name="se" id="se" type="text" class="search" placeholder="Search.."/></div>-->
     <!-- search end  -->
     <div class="sb-button"></div>
     <!--    <div class="share-btn showshare"><i class="fal fa-megaphone"></i><span>Share</span></div>-->
@@ -23,13 +23,17 @@
             <NuxtLink to="/" v-bind:class="{ 'act-link' : this.$nuxt.$route.path=='/'}">Home</NuxtLink>
           </li>
           <li>
+            <NuxtLink to="/albums" v-bind:class="{ 'act-link' : this.$nuxt.$route.path=='/albums'}" >Albums</NuxtLink>
+          </li>
+          <li>
             <NuxtLink to="/portfolio" v-bind:class="{ 'act-link' : this.$nuxt.$route.path=='/portfolio'}" >Portfolio</NuxtLink>
-          <li>
-            <NuxtLink to="/about" v-bind:class="{ 'act-link' : this.$nuxt.$route.path=='/about'}">About</NuxtLink>
           </li>
-          <li>
-            <NuxtLink to="/contacts" v-bind:class="{ 'act-link' : this.$nuxt.$route.path=='/contacts'}">Contacts</NuxtLink>
-          </li>
+<!--          <li>-->
+<!--            <NuxtLink to="/about" v-bind:class="{ 'act-link' : this.$nuxt.$route.path=='/about'}">About</NuxtLink>-->
+<!--          </li>-->
+<!--          <li>-->
+<!--            <NuxtLink to="/contacts" v-bind:class="{ 'act-link' : this.$nuxt.$route.path=='/contacts'}">Contacts</NuxtLink>-->
+<!--          </li>-->
         </ul>
       </nav>
     </div>

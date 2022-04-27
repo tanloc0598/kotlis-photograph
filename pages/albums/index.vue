@@ -4,24 +4,24 @@
     <!-- content -->
     <div class="content">
       <portfolio-listing-left-columns/>
-<!--      &lt;!&ndash; column-wrapper &ndash;&gt;-->
-<!--      <div class="column-wrapper  single-content-section">-->
-<!--        <portfolio-listing-pagination :lastPage="lastPage" :currentPage="currentPage" :query="query"/>-->
-<!--        &lt;!&ndash;section  &ndash;&gt;-->
-<!--        <section class="single-content-section">-->
-<!--          <div class="container small-container">-->
-<!--            <div v-for="portfolio in portfolios"-->
-<!--                 :key="portfolio.slug">-->
-<!--              <portfolio-listing-item :title="portfolio.title" :slug="portfolio.slug" :date="portfolio.createdAt"-->
-<!--                                      :img="portfolio.img"-->
-<!--                                      :createdAt="formatDate(portfolio.createdAt)"-->
-<!--              />-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </section>-->
-<!--        &lt;!&ndash;section end  &ndash;&gt;-->
-<!--      </div>-->
-<!--      &lt;!&ndash; column-wrapper &ndash;&gt;-->
+      <!--      &lt;!&ndash; column-wrapper &ndash;&gt;-->
+      <!--      <div class="column-wrapper  single-content-section">-->
+      <!--        <portfolio-listing-pagination :lastPage="lastPage" :currentPage="currentPage" :query="query"/>-->
+      <!--        &lt;!&ndash;section  &ndash;&gt;-->
+      <!--        <section class="single-content-section">-->
+      <!--          <div class="container small-container">-->
+      <!--            <div v-for="portfolio in portfolios"-->
+      <!--                 :key="portfolio.slug">-->
+      <!--              <portfolio-listing-item :title="portfolio.title" :slug="portfolio.slug" :date="portfolio.createdAt"-->
+      <!--                                      :img="portfolio.img"-->
+      <!--                                      :createdAt="formatDate(portfolio.createdAt)"-->
+      <!--              />-->
+      <!--            </div>-->
+      <!--          </div>-->
+      <!--        </section>-->
+      <!--        &lt;!&ndash;section end  &ndash;&gt;-->
+      <!--      </div>-->
+      <!--      &lt;!&ndash; column-wrapper &ndash;&gt;-->
 
       <!--    -------------------------------- -->
 
@@ -29,24 +29,27 @@
       <!-- column-wrapper -->
       <div class="column-wrapper column-wrapper_smallpadding">
         <!--fixed-bottom-content -->
-        <div class="fixed-bottom-content fbc_white">
-          <div class="gallery-filters">
-            <a href="#" class="gallery-filter  gallery-filter-active" data-filter="*">All</a>
-            <a href="#" class="gallery-filter" data-filter=".nature">Nature</a>
-            <a href="#" class="gallery-filter" data-filter=".models">Models</a>
-            <a href="#" class="gallery-filter" data-filter=".couples">Couples</a>
-            <a href="#" class="gallery-filter" data-filter=".outdoor">Outdoor</a>
-          </div>
-        </div>
+        <portfolio-listing-pagination :lastPage="lastPage" :currentPage="currentPage" :query="query"/>
         <!-- fixed-bottom-content end -->
         <!-- portfolio start -->
+
+<!--        <div class="pagination-container fbc_white">-->
+<!--          <div class="gallery-filters">-->
+<!--            <a href="#" class="gallery-filter  gallery-filter-active" data-filter="*">All</a>-->
+<!--            <a href="#" class="gallery-filter" data-filter=".nature">Nature</a>-->
+<!--            <a href="#" class="gallery-filter" data-filter=".models">Models</a>-->
+<!--            <a href="#" class="gallery-filter" data-filter=".couples">Couples</a>-->
+<!--            <a href="#" class="gallery-filter" data-filter=".outdoor">Outdoor</a>-->
+<!--          </div>-->
+<!--        </div>-->
         <div class="gallery-items min-pad   three-column fl-wrap lightgallery">
+
           <div v-for="portfolio in portfolios"
                :key="portfolio.slug">
-            <AlbumItem :title="portfolio.title" :slug="portfolio.slug"
-                       :date="portfolio.createdAt"
-                       :img="portfolio.img"
-                       :createdAt="formatDate(portfolio.createdAt)"/>
+            <Lazy-albums-item :title="portfolio.title" :slug="portfolio.slug"
+                         :date="portfolio.createdAt"
+                         :img="portfolio.img"
+                         :createdAt="formatDate(portfolio.createdAt)"/>
           </div>
 
         </div>
@@ -69,10 +72,10 @@
 
 <script>
 export default {
-  name: "portfolio",
+  name: "albums",
   layout: 'master-layout',
-  async asyncData({$content, query , params, app, error}) {
-    const perPage = 10;
+  async asyncData({$content, query, params, app, error}) {
+    const perPage = 100;
     const currentPage = parseInt(query.page ?? 1);
 
     const allPortfolios = await $content("portfolio").fetch();
@@ -94,8 +97,15 @@ export default {
       }
       return (currentPage - 1) * perPage;
     };
-  console.log(currentPage, lastPage)
+    console.log(currentPage, lastPage)
     const portfolios = await $content('portfolio', params.slug)
+      .where({
+        $and: {
+          status: {
+            $in: ['A', '']
+          },
+        }
+      })
       .only(['title', 'description', 'img', 'slug', 'author', 'createdAt'])
       .sortBy('createdAt', 'desc')
       .limit(perPage)
