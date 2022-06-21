@@ -68,7 +68,7 @@
 
 <script>
 export default {
-  name: 'IndexPage',
+  name: 'TimelinePage',
   layout: 'master-layout',
 
   async asyncData({$content, params, app, error}) {

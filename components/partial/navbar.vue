@@ -22,6 +22,9 @@
           <li>
             <NuxtLink to="/" v-bind:class="{ 'act-link' : this.$nuxt.$route.path=='/'}">Home</NuxtLink>
           </li>
+<!--          <li>-->
+<!--            <NuxtLink to="/timeline" v-bind:class="{ 'act-link' : this.$nuxt.$route.path=='/timeline'}">Timeline</NuxtLink>-->
+<!--          </li>-->
           <li>
             <NuxtLink to="/albums" v-bind:class="{ 'act-link' : this.$nuxt.$route.path=='/albums'}" >Albums</NuxtLink>
           </li>

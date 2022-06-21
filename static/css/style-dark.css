@@ -200,12 +200,10 @@ blockquote,
   filter: none;
   -webkit-filter: grayscale(0%);
   transition: 0.3s;
-
 }
 
 .bw-to-color:active {
   filter: none;
   -webkit-filter: grayscale(0%);
   transition: 0.1ms;
-
 }

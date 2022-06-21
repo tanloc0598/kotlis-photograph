@@ -35,13 +35,13 @@
       </div>
       <!-- sb-widget-wrap end-->
       <!-- sb-widget-wrap-->
-      <div class="sb-widget-wrap fl-wrap">
-        <h3>Our Last Twitts</h3>
-        <div class="sb-widget  fl-wrap">
-          <div id="footer-twiit"></div>
-          <a href="https://twitter.com/cul0x" target="_blank" class="twitt_btn fl-wrap">Follow Us</a>
-        </div>
-      </div>
+<!--      <div class="sb-widget-wrap fl-wrap">-->
+<!--        <h3>Our Last Twitts</h3>-->
+<!--        <div class="sb-widget  fl-wrap">-->
+<!--          <div id="footer-twiit"></div>-->
+<!--          <a href="https://twitter.com/cul0x" target="_blank" class="twitt_btn fl-wrap">Follow Us</a>-->
+<!--        </div>-->
+<!--      </div>-->
       <!-- sb-widget-wrap end-->
     </div>
     <!-- sidebar end -->

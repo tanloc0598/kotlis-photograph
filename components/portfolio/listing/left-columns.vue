@@ -11,9 +11,9 @@
     <div v-else class="bg" :style="{ backgroundImage: `url(/images/cover/IMG_1642778514959.jpeg)` }"></div>
     <div class="overlay"></div>
     <div class="column-title">
-      <h2>Our's Stories</h2>
-      <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque. Nulla finibus
-        lobortis pulvinar.</h3>
+      <h2 v-if="title">{{ title}}</h2>
+      <h2 v-else>{{"Our's Stories"}}</h2>
+      <h3 v-if="description">{{ description }}</h3>
     </div>
     <div class="column-notifer">
       <div class="scroll-down-wrap transparent_sdw">
@@ -32,6 +32,8 @@
 export default {
   name: "left-columns",
   props: [
+    'title',
+    'description',
     'img',
     'vid',
   ]
