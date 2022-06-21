@@ -104,11 +104,6 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
 
-  // StoryBlok
-  storybook: {
-    // Options
-  },
-
   server: {
     https: {
       key: fs.readFileSync(path.resolve(__dirname, 'server.key')),
