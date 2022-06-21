@@ -60,7 +60,6 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     '@nuxtjs/device',
-    ['@storyblok/nuxt-2/module', { accessToken: 'tfxLReqEFtQmTqnwv7R0cAtt' }]
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -104,6 +103,11 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
+
+  // StoryBlok
+  storybook: {
+    // Options
+  },
 
   server: {
     https: {
