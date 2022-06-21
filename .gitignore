@@ -92,3 +92,6 @@ yarn.lock
 /content/portfolio/*
 /static/images/portfolio/*
 .dccache
+
+.nuxt-storybook
+storybook-static

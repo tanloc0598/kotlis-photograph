@@ -1,4 +1,6 @@
 import 'dotenv/config'
+import path from 'path'
+import fs from 'fs'
 
 export default {
   // Target: https://go.nuxtjs.dev/config-target
@@ -58,6 +60,7 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     '@nuxtjs/device',
+    ['@storyblok/nuxt-2/module', { accessToken: 'tfxLReqEFtQmTqnwv7R0cAtt' }]
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -100,5 +103,12 @@ export default {
   content: {},
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {}
+  build: {},
+
+  server: {
+    https: {
+      key: fs.readFileSync(path.resolve(__dirname, 'server.key')),
+      cert: fs.readFileSync(path.resolve(__dirname, 'server.crt'))
+    }
+  }
 }
